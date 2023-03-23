@@ -1,0 +1,28 @@
+.headerCl{
+  height: 95px;
+  background: gray;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding-top: 10px;
+  position: sticky;
+  top:0;
+}
+
+.selectSearch{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select{
+  width: 320px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  padding-right: 5px;
+}
+
+.iconCl{
+  margin-left: 40px;
+}
