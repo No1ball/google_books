@@ -5,8 +5,8 @@ import classes from './Header.module.scss'
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import {grey} from "@mui/material/colors";
 
-import Categories from '../../ModelsForSelect/selectCategory';
-import sortObj from "../../ModelsForSelect/selectSort";
+import Categories from '../../types/ModelsForSelect/selectCategory';
+import sortObj from "../../types/ModelsForSelect/selectSort";
 
 
 const Header = () => {

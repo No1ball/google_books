@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from "./App.module.scss";
-import FetchBooks from "./API/booksApi";
 import Header from "./components/Header/Header";
 import Content from './components/Content/Content';
+import {Provider} from "react-redux";
+import { store } from './store';
+import {fetchAllBooks} from "./store/booksReducer";
 
 function App() {
-  FetchBooks.getAllBooks();
+    useEffect(()=>{
+        store.dispatch(fetchAllBooks())
+    }, [])
   return (
-    <div className={classes.App}>
-        <Header/>
-        <Content/>
-    </div>
+      <Provider store={store}>
+            <div className={classes.App}>
+                <Header/>
+                <Content/>
+            </div>
+      </Provider>
   );
 }
 

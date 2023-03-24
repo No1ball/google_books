@@ -10,27 +10,27 @@ const CategoryObj :Categories = {
             name: "All",
         },
         {
-            value: "art",
+            value: "Art",
             name: "Art",
         },
         {
-            value: "biography",
+            value: "Biography",
             name: "Biography",
         },
         {
-            value: "computers",
+            value: "Computers",
             name: "Computers",
         },
         {
-            value: "history",
+            value: "History",
             name: "History",
         },
         {
-            value: "medical",
+            value: "Medical",
             name: "Medical",
         },
         {
-            value: "poetry",
+            value: "Poetry",
             name: "Poetry",
         },
     ]
