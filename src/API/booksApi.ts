@@ -6,7 +6,7 @@ export default class FetchBooks{
     static async getAllBooks(){
         try {
             const data = await
-                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:All&orderBy=relevance&key=${this.key}`);
+                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=bussines&orderBy=relevance&key=${this.key}`);
             console.log(data.data)
             return data.data
         }catch (err) {
