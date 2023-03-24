@@ -1,0 +1,23 @@
+.temp{
+  margin: 20px;
+}
+
+.container{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-auto-rows: auto;
+  grid-row-gap: 50px;
+  display: grid;
+}
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  margin: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

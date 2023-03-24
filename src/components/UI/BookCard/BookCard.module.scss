@@ -1,0 +1,34 @@
+.card{
+  width: 450px;
+  min-height:250px ;
+  //max-height: 350px;
+  border: 1px solid gray;
+  display: flex;
+
+}
+
+.content{
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.image{
+  display: flex;
+  justify-content: center;
+  max-height: 200px;
+  width: 100%;
+  & img{
+    max-height: 200px;
+    width: 150px;
+  }
+}
+
+.textCl{
+  border-bottom: 1px solid gray;
+}
+
+.button{
+  display: flex;
+  align-items: flex-start;
+}

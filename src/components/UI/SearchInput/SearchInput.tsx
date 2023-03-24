@@ -20,7 +20,7 @@ const SearchInput = (props: Props) => {
         <div className={classes.searchCl}>
             <form onSubmit={handler}>
             <FormControl variant="filled" >
-                <InputLabel htmlFor="input-with-icon-adornment">Amount</InputLabel>
+                <InputLabel htmlFor="input-with-icon-adornment">Title</InputLabel>
                 <FilledInput
                     id="input-with-icon-adornment"
                     endAdornment={<InputAdornment position="start"><SearchIcon
