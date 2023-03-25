@@ -8,9 +8,11 @@ const BooksContainer = () => {
     const booksArr = useBookSelector(state => state.books.data.books.items)
     const state = useBookSelector(state => state.books.state.isLoading)
     const [booksArray, setBooksArray] = useState<any[]>([])
+
     useEffect(()=>{
         setBooksArray(booksArr)
     },[state])
+    console.log(booksArr)
     return(
         <div className={classes.wrapper}>
             {booksArray.length > 0 ?
@@ -31,7 +33,7 @@ const BooksContainer = () => {
                     </div>
                 </div>
                 :
-                false
+                <h1>Книги не найдены</h1>
             }
         </div>
     )

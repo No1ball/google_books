@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import classes from "./SelectComponent.module.scss";
 
 interface DataInArray {
@@ -14,10 +14,8 @@ interface Props {
     setter: (newState: string) => void
 }
 const SelectComponent = (props: Props) => {
-
-    const handleChange = (e:any) => {
+    const handleChange = (e:SelectChangeEvent<string>) => {
         props.setter(e.target.value)
-        console.log(e.target.value)
     }
     return (
         <div className={classes.selectCl}>

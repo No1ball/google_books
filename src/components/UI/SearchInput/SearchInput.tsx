@@ -2,16 +2,21 @@ import React from 'react';
 import {FilledInput, FormControl, InputAdornment, InputLabel} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import classes from "./SearchInput.module.scss";
+import {useBookDispatch, useBookSelector} from "../../../store";
+import {fetchByQuery} from "../../../store/booksReducer";
 
 interface Props{
     setter: (text: string) => void,
     value: string
 }
 const SearchInput = (props: Props) => {
+    const dispatch = useBookDispatch();
+    const category = useBookSelector(state => state.books.data.category)
+    const search = useBookSelector(state => state.books.data.search)
+    const order = useBookSelector(state => state.books.data.order)
     const handler = (e: React.FormEvent) =>{
         e.preventDefault()
-        alert("Ff")
-
+        dispatch(fetchByQuery({category, search, order}))
     }
     const inputHandler = (e:  React.ChangeEvent<HTMLInputElement>) =>{
         props.setter(e.target.value)

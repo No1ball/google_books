@@ -5,14 +5,13 @@ import FetchBooks from "../API/booksApi";
 
 type Params = {
     category:string,
-    order : 'newest'| 'relevance',
-    search:string
+    order : string,
+    search:string,
 }
 export const fetchAllBooks = createAsyncThunk<Books, undefined, {rejectValue: string}>(
     'books/fetchAllBooks',
     async function (){
         const response = await FetchBooks.getAllBooks();
-        console.log(response)
         return (response) as Books
     }
 )
@@ -27,7 +26,11 @@ export const fetchByQuery = createAsyncThunk<Books, Params,{rejectValue: string}
 
 interface IState {
     data:{
-        books: Books
+        books: Books,
+        order: string,
+        search: string,
+        category: string,
+        id: string
     },
     state:{
         isLoading: boolean
@@ -40,7 +43,11 @@ const initialState: IState = {
             kind:'',
             totalItems: 0,
             items: []
-        }
+        },
+        search:'',
+        category: 'all',
+        order: 'relevance',
+        id: ''
     },
     state: {
         isLoading: false,
@@ -53,6 +60,18 @@ const booksSlice = createSlice({
     reducers:{
         setLoading(state, action: PayloadAction<boolean>){
             state.state.isLoading = action.payload
+        },
+        setSearchQuery(state, action: PayloadAction<string>){
+            state.data.search = action.payload
+        },
+        setCategory(state, action: PayloadAction<string>){
+            state.data.category = action.payload
+        },
+        setOrder(state, action: PayloadAction<string>){
+            state.data.order = action.payload
+        },
+        setId(state, action: PayloadAction<string>){
+            state.data.id = action.payload
         }
     },
     extraReducers: (builder => {
@@ -71,3 +90,4 @@ const booksSlice = createSlice({
 })
 
 export default booksSlice.reducer;
+export const {setOrder, setCategory, setSearchQuery, setId, setLoading} = booksSlice.actions;

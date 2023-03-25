@@ -6,21 +6,33 @@ export default class FetchBooks{
     static async getAllBooks(){
         try {
             const data = await
-                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=economic&orderBy=relevance&maxResults=30&key=${this.key}`);
-            console.log(data.data)
+                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:&orderBy=relevance&maxResults=30&key=${this.key}`);
             return data.data
         }catch (err) {
             console.log(err)
         }
     }
-    static async getBooksByQuery (category: string, order : 'newest'| 'relevance', search:string) {
+    static async getBooksByQuery (category: string, order : string, search:string) {
         try {
+            if(category.localeCompare('all') === 0){
+                category = ''
+            }
             const data = await
                 axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}+intitle:${search}&maxResults=30&orderBy=${order}&key=${this.key}`);
-            console.log(data.data)
+            if(data.data.totalItems === 0){
+                data.data = {
+                    ...data.data,
+                    items: []
+                }
+            }
             return data.data
         }catch (err) {
-            console.log(err)
+            const errB: Books = {
+                kind:'',
+                totalItems: 0,
+                items:[]
+            }
+            return errB
         }
     }
 }

@@ -1,18 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SelectComponent from "../UI/SelectComponent/SelectComponent";
 import SearchInput from "../UI/SearchInput/SearchInput";
 import classes from './Header.module.scss'
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import {grey} from "@mui/material/colors";
-
 import Categories from '../../types/ModelsForSelect/selectCategory';
 import sortObj from "../../types/ModelsForSelect/selectSort";
+import {useBookDispatch, useBookSelector} from "../../store";
+import {setCategory, setOrder, setSearchQuery} from '../../store/booksReducer';
 
 
 const Header = () => {
-    const [category, setCategory] = useState<string>('all')
-    const [sort, setSort] = useState<string>('relevance')
-    const [searchStr, setSearchStr] = useState<string>('')
+    const dispatch = useBookDispatch()
+    const category = useBookSelector(state => state.books.data.category)
+    const searchStr = useBookSelector(state => state.books.data.search)
+    const order = useBookSelector(state => state.books.data.order)
+    const dispatchCategory = (value: string) =>{
+        dispatch(setCategory(value))
+    }
+
+    const dispatchOrder = (value: string) => {
+        dispatch(setOrder(value))
+    }
+    const dispatchSearch = (value: string) => {
+        dispatch(setSearchQuery(value))
+    }
     return (
         <div className={classes.headerCl}>
             <div className={classes.iconCl}>
@@ -23,15 +35,15 @@ const Header = () => {
                     <SelectComponent title={Categories.title}
                                      data={Categories.data}
                                      value={category}
-                                     setter={setCategory}
+                                     setter={dispatchCategory}
                     />
                     <SelectComponent title={sortObj.title}
                                      data={sortObj.data}
-                                     value={sort}
-                                     setter={setSort}
+                                     value={order}
+                                     setter={dispatchOrder}
                     />
                 </div>
-                 <SearchInput value={searchStr} setter={setSearchStr}/>
+                 <SearchInput value={searchStr} setter={dispatchSearch}/>
             </div>
         </div>
     );
