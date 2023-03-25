@@ -6,7 +6,7 @@ export default class FetchBooks{
     static async getAllBooks(){
         try {
             const data = await
-                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=bussines&orderBy=relevance&key=${this.key}`);
+                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=economic&orderBy=relevance&maxResults=30&key=${this.key}`);
             console.log(data.data)
             return data.data
         }catch (err) {
@@ -16,7 +16,7 @@ export default class FetchBooks{
     static async getBooksByQuery (category: string, order : 'newest'| 'relevance', search:string) {
         try {
             const data = await
-                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}+intitle:${search}&orderBy=${order}&key=${this.key}`);
+                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}+intitle:${search}&maxResults=30&orderBy=${order}&key=${this.key}`);
             console.log(data.data)
             return data.data
         }catch (err) {

@@ -9,6 +9,8 @@ interface DataForCard{
 }
 
 const BookCard = (props:DataForCard) => {
+    // @ts-ignore
+    // @ts-ignore
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -37,9 +39,15 @@ const BookCard = (props:DataForCard) => {
                             <span>
                                 <span className={classes.textCl}>
                                     Authors
-                                </span>: {props.authors.map((item, i)=>
-                                <span key={i}>{item} </span>
-                            )}</span>
+                                </span>:
+                                {props.authors.map((item, i)=>
+                                    <span key={i}>
+                                        { props.authors && i !== props.authors.length - 1 ?
+                                            <span> {item},</span>
+                                            :
+                                            <span> {item}</span> }
+                                    </span>
+                                )}</span>
                             :
                             false
                         }
