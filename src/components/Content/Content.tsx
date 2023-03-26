@@ -7,7 +7,7 @@ import Loader from "../UI/Loader/Loader";
 const Content = () => {
     const isLoading = useBookSelector(state => state.books.state.isLoading)
     return (
-        <div className={classes.contentCl}>
+        <div className={classes.contecntCl}>
             {isLoading ?
                 <div>
                     <BooksCountBlock/>

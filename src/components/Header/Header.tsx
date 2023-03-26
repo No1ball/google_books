@@ -40,12 +40,10 @@ const Header = () => {
     }
     return (
         <div className={classes.headerCl}>
-            <div>
-                <div className={classes.title}></div>
-                <div  className={classes.iconCl}>
+                <div className={classes.title}>Books App</div>
+                <div className={classes.iconCl}>
                     <LocalLibraryIcon  sx={{ fontSize: 70,  color: grey[50] }} />
                 </div>
-            </div>
             <div className={classes.selectSearch}>
                 <div className={classes.select}>
                     <SelectComponent title={Categories.title}

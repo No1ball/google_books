@@ -22,8 +22,8 @@ const BookCard = (props:DataForCard) => {
 
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {props.title.slice(0,40)}
-                            {props.title.length >= 40 ? <span>...</span> : false}
+                            {props.title.slice(0,30)}
+                            {props.title.length >= 30 ? <span>...</span> : false}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             {props.categories?.length ?

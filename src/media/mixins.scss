@@ -1,0 +1,39 @@
+@import "variables";
+
+@mixin xxl(){
+  @media screen and (min-width: $breakpoint_xxl) {
+    @content
+  }
+}
+
+@mixin xl() {
+  @media screen and (min-width: $breakpoint_xl) {
+    @content
+  }
+}
+@mixin mc() {
+  @media screen and (min-width: $breakpoint_mc) {
+    @content
+  }
+}
+@mixin md() {
+  @media screen and (min-width: $breakpoint_md) {
+    @content
+  }
+}
+@mixin sm() {
+  @media screen and (min-width: $breakpoint_sm) {
+    @content
+  }
+}
+@mixin large(){
+  @media screen and (min-width: $breakpoint_large) {
+    @content
+  }
+}
+
+@mixin ulrt(){
+  @media screen and (min-width: $breakpoint_ultr) {
+    @content
+  }
+}

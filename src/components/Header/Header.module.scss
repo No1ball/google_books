@@ -2,15 +2,17 @@
 @import "../../media/variables";
 @include mc{
   .headerCl {
-    height: 200px;
-    background: gray;
+    height: 210px;
+    min-width: 81%;
+    background: black;
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 20px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 200;
+    margin: auto auto;
   }
 
   .selectSearch {
@@ -33,20 +35,20 @@
     display: none;
   }
   .title{
-    height: 50px;
-  }
-  .title:before{
-    height: 25px;
-    content: "Books App";
+    padding-bottom: 10px;
+    height: auto;
     font-size: 28px;
     color: whitesmoke;
-    font-family: "Times New Roman", cursive;
+    font-family: Gill Sans, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 200;
   }
   .search{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin-top: 10px;
   }
 }
 @include sm{
@@ -60,7 +62,7 @@
 @include xl{
   .headerCl{
     height: 95px;
-    background: gray;
+    background: black;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -94,9 +96,9 @@
     display: none;
   }
   .search{
-    width: 340px;
+    width: 50%;
     padding-right: 20px;
-    margin: 10px;
+    margin-top: 10px;
   }
 }
 
@@ -126,5 +128,12 @@
     justify-content: space-around;
     padding-right: 5px;
     margin: 10px;
+  }
+}
+@include ulrt{
+  .iconCl{
+    display: flex;
+    margin-left: 50px;
+    margin-bottom: 70px;
   }
 }

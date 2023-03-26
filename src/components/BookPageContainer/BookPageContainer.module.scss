@@ -8,10 +8,10 @@
     & img {
       width: 220px;
       height: 240px;
-      border: 1px solid lightgrey;
+      border: 2px solid lightgrey;
     }
 
-    background: lightgray;
+    background: gray;
     justify-content: center;
   }
 
@@ -21,8 +21,10 @@
     justify-content: center;
     min-height: 550px;
     width: 290px;
-    box-shadow: -2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 50px;
+    margin-top: 30px;
+    color: white;
+    border: 2px solid black;
   }
 
   .content {
@@ -36,31 +38,37 @@
     margin-top: 15px;
     text-align: center;
     margin-bottom: 5px;
+    font-family: Gill Sans, sans-serif;
   }
 
   .title {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    font-family: Gill Sans, sans-serif;
   }
 
   .author {
-    color: gray;
+    color: lightgrey;
+    font-family: Gill Sans, sans-serif;
   }
 
   .description {
     margin-top: 3px;
     margin-bottom: 3px;
     font-weight: bold;
-
+    font-family: Gill Sans, sans-serif;
     & span {
-      border-bottom: 1px solid blue;
+      border-bottom: 1px solid whitesmoke;
     }
   }
   .descriptionText {
     text-align: justify;
     margin-right: 9px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    line-height: 27px;
+    font-family: Gill Sans, sans-serif;
+    font-size: 20px;
   }
 }
 @include sm {
@@ -70,8 +78,8 @@
     justify-content: center;
     min-height: 550px;
     width: 380px;
-    box-shadow: -2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 50px;
+    margin-top: 30px;
   }
 
 }
@@ -82,8 +90,8 @@
     justify-content: center;
     min-height: 550px;
     width: 680px;
-    box-shadow: -2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 50px;
+    margin-top: 30px;
   }
   .imgBlock {
     display: flex;
@@ -91,10 +99,9 @@
     & img {
       width: 200px;
       height: 300px;
-      border: 1px solid lightgrey;
+      border: 2px solid lightgrey;
     }
-
-    background: lightgray;
+    background: grey;
     justify-content: center;
   }
 }
@@ -105,7 +112,7 @@
     justify-content: center;
     min-height: 550px;
     width: 810px;
-    box-shadow: -2px 2px 4px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 50px;
+    margin-top: 30px;
   }
 }
