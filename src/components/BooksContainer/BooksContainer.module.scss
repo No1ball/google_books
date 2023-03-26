@@ -1,27 +1,111 @@
-.container{
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 40px;
-  grid-auto-rows: auto;
-  grid-row-gap: 50px;
-  display: grid;
-}
-.wrapper{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+@import "../../media/mixins";
+@import "../../media/variables";
+@include mc {
+  .container {
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.button{
-  margin: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+@include xxl {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .button {
+    margin: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 }
-.loader{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+@include md {
+   .container {
+     grid-template-columns: 1fr 1fr;
+     grid-column-gap: 10px;
+     grid-auto-rows: auto;
+     grid-row-gap: 50px;
+     display: grid;
+   }
+ }
+
+@include xl {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
+}
+
+@include xxl {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
+}
+
+@include large {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
+}
+
+@include ulrt {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-auto-rows: auto;
+    grid-row-gap: 50px;
+    display: grid;
+  }
 }

@@ -1,29 +1,130 @@
-.headerCl{
-  height: 95px;
-  background: gray;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  padding-top: 10px;
-  position: sticky;
-  top:0;
-  z-index: 100;
+@import "../../media/mixins";
+@import "../../media/variables";
+@include mc{
+  .headerCl {
+    height: 200px;
+    background: gray;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .selectSearch {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    margin: 5px;
+  }
+
+  .select {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding-right: 5px;
+  }
+
+  .iconCl {
+    display: none;
+  }
+  .title{
+    height: 50px;
+  }
+  .title:before{
+    height: 25px;
+    content: "Books App";
+    font-size: 28px;
+    color: whitesmoke;
+    font-family: "Times New Roman", cursive;
+  }
+  .search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+}
+@include sm{
+
 }
 
-.selectSearch{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+@include md{
+
 }
 
-.select{
-  width: 320px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  padding-right: 5px;
+@include xl{
+  .headerCl{
+    height: 95px;
+    background: gray;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding-top: 10px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+  }
+
+  .selectSearch{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+  }
+
+  .select{
+    width: 350px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding-right: 5px;
+    margin: 10px;
+  }
+
+  .iconCl{
+    display: flex;
+    margin: 20px;
+  }
+  .title{
+    display: none;
+  }
+  .search{
+    width: 340px;
+    padding-right: 20px;
+    margin: 10px;
+  }
 }
 
-.iconCl{
-  margin-left: 40px;
+@include xxl{
+  .iconCl{
+    display: flex;
+    margin: 50px;
+  }
+  .select{
+    width: 450px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding-right: 5px;
+    margin: 10px;
+  }
+}
+@include large{
+  .iconCl{
+    display: flex;
+    margin: 50px;
+  }
+  .select{
+    width: 600px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding-right: 5px;
+    margin: 10px;
+  }
 }

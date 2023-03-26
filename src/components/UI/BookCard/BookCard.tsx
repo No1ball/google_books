@@ -14,7 +14,7 @@ interface DataForCard{
 const BookCard = (props:DataForCard) => {
     return (
         <div onClick={props.func}>
-            <Card sx={{ maxWidth: 345, minHeight: 450}}>
+            <Card className={classes.card}>
                 <CardActionArea>
                     <div className={classes.image}>
                         <img src={props.imagePath} alt={'book'}/>

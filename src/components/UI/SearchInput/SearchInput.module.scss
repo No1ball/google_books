@@ -1,4 +1,23 @@
-.searchCl{
-  margin-right: 80px;
-  max-width: 450px;
+@import "../../../media/mixins";
+@import "../../../media/variables";
+
+@include mc {
+  .searchCl {
+    //margin-right: 80px;
+    max-width: 100%;
+  }
+}
+
+@include xl{
+  .searchCl{
+    margin-right: 80px;
+    max-width: 450px;
+  }
+}
+
+@include xxl{
+  .searchCl{
+    margin-right: 80px;
+    max-width: 650px;
+  }
 }

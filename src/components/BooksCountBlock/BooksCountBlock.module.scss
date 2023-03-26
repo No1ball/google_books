@@ -1,9 +1,25 @@
-.wrapper{
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@import "../../media/mixins";
+@import "../../media/variables";
+@include mc {
+  .wrapper{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .countBlock{
+    font-size: 22px;
+  }
 }
-.countBlock{
-  font-size: 22px;
+
+@include ulrt {
+  .wrapper{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .countBlock{
+    font-size: 28px;
+  }
 }
