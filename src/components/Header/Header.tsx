@@ -7,7 +7,9 @@ import {grey} from "@mui/material/colors";
 import Categories from '../../types/ModelsForSelect/selectCategory';
 import sortObj from "../../types/ModelsForSelect/selectSort";
 import {useBookDispatch, useBookSelector} from "../../store";
-import {setCategory, setOrder, setSearchQuery} from '../../store/booksReducer';
+import {fetchByQuery, setCategory, setOrder, setSearchQuery} from '../../store/booksReducer';
+import {SelectChangeEvent} from "@mui/material";
+import {useHistory} from "react-router";
 
 
 const Header = () => {
@@ -15,6 +17,17 @@ const Header = () => {
     const category = useBookSelector(state => state.books.data.category)
     const searchStr = useBookSelector(state => state.books.data.search)
     const order = useBookSelector(state => state.books.data.order)
+    const router = useHistory();
+    const handleChangeCategory = (setter: (value: string) => void) => (e:SelectChangeEvent<string>) => {
+        setter(e.target.value)
+        dispatch(fetchByQuery({category: e.target.value, search:searchStr, order}))
+        router.push('/books')
+    }
+    const handleChangeOrder =  (setter: (value: string) => void) =>(e:SelectChangeEvent<string>) => {
+        setter(e.target.value)
+        dispatch(fetchByQuery({category, search:searchStr, order:e.target.value}))
+        router.push('/books')
+    }
     const dispatchCategory = (value: string) =>{
         dispatch(setCategory(value))
     }
@@ -36,11 +49,13 @@ const Header = () => {
                                      data={Categories.data}
                                      value={category}
                                      setter={dispatchCategory}
+                                     handleChange={handleChangeCategory(dispatchCategory)}
                     />
                     <SelectComponent title={sortObj.title}
                                      data={sortObj.data}
                                      value={order}
                                      setter={dispatchOrder}
+                                     handleChange={handleChangeOrder(dispatchOrder)}
                     />
                 </div>
                  <SearchInput value={searchStr} setter={dispatchSearch}/>

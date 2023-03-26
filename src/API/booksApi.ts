@@ -53,4 +53,27 @@ export default class FetchBooks{
             return errB
         }
     }
+    static async getMoreData(category: string, order : string, search:string, startIndex: number| undefined){
+        try {
+            if(category.localeCompare('all') === 0){
+                category = ''
+            }
+            const data = await
+                axios.get<Books>(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}+intitle:${search}&startIndex=${startIndex}&maxResults=30&orderBy=${order}&key=${this.key}`);
+            if(data.data.totalItems === 0){
+                data.data = {
+                    ...data.data,
+                    items: []
+                }
+            }
+            return data.data
+        }catch (err) {
+            const errB: Books = {
+                kind:'',
+                totalItems: 0,
+                items:[]
+            }
+            return errB
+        }
+    }
 }

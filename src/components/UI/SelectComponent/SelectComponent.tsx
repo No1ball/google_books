@@ -1,9 +1,7 @@
 import React from 'react';
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import classes from "./SelectComponent.module.scss";
-import {fetchByQuery} from "../../../store/booksReducer";
-import {useHistory} from "react-router";
-import {useBookDispatch, useBookSelector} from "../../../store";
+
 
 interface DataInArray {
     value: string,
@@ -14,19 +12,10 @@ interface Props {
     title: string,
     data: DataInArray[],
     value: string
-    setter: (newState: string) => void
+    setter: (newState: string) => void,
+    handleChange: (e:SelectChangeEvent<string>) => void
 }
 const SelectComponent = (props: Props) => {
-    const dispatch = useBookDispatch();
-    const category = useBookSelector(state => state.books.data.category)
-    const search = useBookSelector(state => state.books.data.search)
-    const order = useBookSelector(state => state.books.data.order)
-    const router = useHistory()
-    const handleChange = (e:SelectChangeEvent<string>) => {
-        props.setter(e.target.value)
-        dispatch(fetchByQuery({category, search, order}))
-        router.push('/books')
-    }
     return (
         <div className={classes.selectCl}>
             <FormControl fullWidth>
@@ -36,7 +25,7 @@ const SelectComponent = (props: Props) => {
                     id="demo-simple-select"
                     value={props.value}
                     label="Categories"
-                    onChange={handleChange}
+                    onChange={props.handleChange}
                 >
                     {props.data.map(( item,i) =>
                         <MenuItem key={i} value={item.value}> {item.name} </MenuItem>

@@ -4,17 +4,19 @@ import BookCard from '../UI/BookCard/BookCard';
 import classes from "./BooksContainer.module.scss";
 import LoadButton from "../UI/LoadButton/LoadButton";
 import {useHistory} from "react-router";
-import {setCategoriesAndDescription } from "../../store/booksReducer";
+import { fetchMoreBooks, setCategoriesAndDescription, setStartIndex} from "../../store/booksReducer";
+
 
 const BooksContainer = () => {
     const booksArr = useBookSelector(state => state.books.data.books.items)
     const state = useBookSelector(state => state.books.state.isLoading)
+    const buttonState = useBookSelector(state => state.books.state.buttonLoad)
     const [booksArray, setBooksArray] = useState<any[]>([])
     const dispatch = useBookDispatch()
     const router = useHistory();
     useEffect(()=>{
         setBooksArray(booksArr)
-    },[state])
+    },[state, buttonState])
     console.log(booksArr)
     const direct = (id:string, item: any) => (event: React.MouseEvent)=> {
         dispatch(setCategoriesAndDescription({
@@ -22,6 +24,16 @@ const BooksContainer = () => {
             description: item.volumeInfo?.description,
         }))
         router.push(`book/${id}`)
+    }
+    const category = useBookSelector(state => state.books.data.category)
+    const search = useBookSelector(state => state.books.data.search)
+    const order = useBookSelector(state => state.books.data.order)
+    const startIndex = useBookSelector(state => state.books.state.startIndex)
+
+    const clickHandler = (e: React.MouseEvent) =>{
+        e.preventDefault()
+        dispatch(fetchMoreBooks({category, order, search, startIndex}))
+        dispatch(setStartIndex())
     }
     return(
         <div className={classes.wrapper}>
@@ -40,7 +52,7 @@ const BooksContainer = () => {
 
                     </div>
                     <div className={classes.button}>
-                        <LoadButton/>
+                        <LoadButton func={clickHandler}/>
                     </div>
                 </div>
                 :
