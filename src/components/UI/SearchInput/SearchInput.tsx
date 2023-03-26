@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import classes from "./SearchInput.module.scss";
 import {useBookDispatch, useBookSelector} from "../../../store";
 import {fetchByQuery} from "../../../store/booksReducer";
+import {useHistory} from "react-router";
 
 interface Props{
     setter: (text: string) => void,
@@ -14,9 +15,11 @@ const SearchInput = (props: Props) => {
     const category = useBookSelector(state => state.books.data.category)
     const search = useBookSelector(state => state.books.data.search)
     const order = useBookSelector(state => state.books.data.order)
+    const router = useHistory()
     const handler = (e: React.FormEvent) =>{
         e.preventDefault()
         dispatch(fetchByQuery({category, search, order}))
+        router.push('/books')
     }
     const inputHandler = (e:  React.ChangeEvent<HTMLInputElement>) =>{
         props.setter(e.target.value)
