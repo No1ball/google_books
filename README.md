@@ -1,16 +1,16 @@
-#Задание
+# Задание
 https://github.com/fugr-ru/frontend-javascript-test-2
 
-#Запуск с помощью Docker
+# Запуск с помощью Docker
 
 docker build . -t `name`
 docker run -p 3000:3000 -d `name`
 
-#Просмотр проекта
+# Просмотр проекта
 
 https://book-4deb4.web.app
 
-#Детали реализации
+# Детали реализации
 Задание выполнено на Typescript, React и Redux Toolkit. В качестве UI-библиотеки использовался Material UI.
 
 Верстка не ломается начиная с 315px шириной экрана и до 1900. 
